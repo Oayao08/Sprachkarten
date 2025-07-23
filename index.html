@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Sprachkarten – Aprende vocabulario alemán con flashcards</title>
+    <meta name="description" content="App interactiva para aprender vocabulario en alemán con tarjetas de memorización. Ideal para estudiantes de idiomas." />
+    <meta name="author" content="Omar Ayaou" />
+    <meta name="keywords" content="Alemán, Flashcards, React, Aprendizaje, Sprachkarten, Vocabulario" />
+
+    <!-- Open Graph para compartir en redes -->
+    <meta property="og:title" content="Sprachkarten – Flashcards de alemán" />
+    <meta property="og:description" content="Aprende vocabulario alemán con tarjetas interactivas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://tuweb.com/imagen-preview.jpg" />
+    <meta property="og:url" content="https://tuweb.com" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Fuente moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: '#3B82F6',
+              secondary: '#FACC15',
+              dark: '#111827',
+              light: '#f9fafb',
+            }
+          }
+        }
+      };
+    </script>
+
+    <!-- Detectar modo oscuro del sistema -->
+    <script>
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.body.classList.add('bg-gray-900', 'text-gray-100');
+      }
+    </script>
+
+    <!-- React & ReactDOM desde CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel para JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Estilos adicionales -->
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9fafb;
+        color: #111827;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      [data-theme="dark"] body {
+        background-color: #1f2937;
+        color: #f3f4f6;
+      }
+
+      ::selection {
+        background: #3B82F6;
+        color: white;
+      }
+
+      .card:hover {
+        transform: scale(1.03);
+        transition: transform 0.2s ease;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col items-center justify-start py-10 px-4">
+    <!-- Mensaje si JS está desactivado -->
+    <noscript>
+      <div class="bg-red-100 text-red-800 border border-red-300 p-4 rounded mb-4 text-center font-semibold">
+        ⚠️ Esta aplicación requiere JavaScript para funcionar correctamente.
+      </div>
+    </noscript>
+
+    <!-- Encabezado principal -->
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-bold text-primary drop-shadow-sm">Sprachkarten</h1>
+      <p class="text-gray-600 dark:text-gray-300 text-lg mt-2 max-w-md mx-auto">
+        Aprende vocabulario en alemán de forma interactiva. ¡Mejora cada día!
+      </p>
+    </header>
+
+    <!-- Root React -->
+    <main id="root" class="w-full max-w-4xl mx-auto"></main>
+
+    <!-- App React -->
+    <script type="text/babel" src="app.jsx"></script>
+  </body>
+</html>
